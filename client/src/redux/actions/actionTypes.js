@@ -1,0 +1,5 @@
+export const GET_GAMES = 'GET_GAMES';
+export const SET_GENRES = 'SET_GENRES';
+export const SET_PLATFORMS = 'SET_PLATFORMS';
+export const SET_IS_API_GAME ="SET_IS_API_GAME"
+export const SET_FILTER_GENRE_GAMES ="SET_FILTER_GENRE_GAMES"

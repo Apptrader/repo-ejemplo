@@ -1,0 +1,105 @@
+.container {
+    width: 1300px;
+    height: 500px;
+    border: 1px solid black;
+    margin: auto;
+    margin-top: 30px;
+    background-color: rgb(70, 71, 124, 0.9);
+    padding: 15px;
+}
+
+.divWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    margin: auto;
+    padding: 10px;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: -50px;
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    height: 450px
+}
+
+.imgWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    margin: auto;
+    padding: 10px;
+    height: 300px;
+}
+
+.genresWrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    
+
+}
+
+.form {
+    margin-top: 50px;
+}
+
+.title {
+padding: 10px;
+margin-right: 25px;
+}
+
+.genreName {
+    font-size: 12px;
+    margin: 8px;
+    background-color: gray;
+    padding: 5px;
+    cursor: pointer;
+    
+}
+
+.genreName:hover {
+    background-color:rgb(89, 157, 212);
+}
+
+.genresNames {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap:2px;
+    align-items: center;
+    margin: auto;
+}
+
+.selectedGenre {
+    background-color:rgb(89, 157, 212);
+}
+
+.inputs {
+    padding-top: 2px;
+    /* border: 1px solid black; */
+    margin-right: 30px;
+}
+
+.error {
+    border: 1px solid red;
+}
+
+.errorMessage {
+    font-size: small;
+    color: rgb(207, 98, 98)
+}
+
+.gameImage {
+ border: 1px solid black;
+    width: 200px;
+    height: 300px;
+    margin-bottom: 15px;
+}
+
+.genreTitle {
+    margin: auto;
+
+}

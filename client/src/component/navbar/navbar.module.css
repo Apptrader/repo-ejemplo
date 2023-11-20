@@ -1,0 +1,44 @@
+.container {
+    width: 100%;
+    height: 60px;
+    position: sticky;
+    top: 0;
+    background-color: rgb(214, 212, 212);
+    display: flex;
+    color: black;
+    font: bolder;
+    z-index: 22;
+}
+
+.navBarBtn {
+    margin: auto;
+}
+
+.btnWrapper {
+    display: flex;
+    gap: 200px;
+    margin: auto;
+}
+
+.logoWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px
+}
+
+.logo {
+    padding-left: 10px;
+    width: 50px;
+    height: 50px;
+}
+
+.info {
+    color: rgb(192, 45, 45);
+    font-weight: bold;
+}
+
+.games {
+    color: rgb(48, 48, 184);
+    font-weight: bold;
+}

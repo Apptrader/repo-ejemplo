@@ -1,0 +1,38 @@
+.welcomeCard {
+    width: 800px;
+    height: 500px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background: rgba(19, 1, 1, 0.8);
+    opacity: 2;
+    border-radius: 15px;
+}
+
+.infoParagraph {
+    width: 400px;
+    margin: auto;
+    font-size: larger;
+}
+
+.infoWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.enterImg {
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    transition: width 0.3s, height 0.3s; /* Agrega una transición suave */
+}
+
+.enterImg:hover {
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+}

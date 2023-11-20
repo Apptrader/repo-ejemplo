@@ -1,0 +1,42 @@
+.cardWrapper {
+    border: 2px solid black;
+    width: 250px;
+    height: 300px;
+    background-color: rgb(70, 71, 124, 0.9);
+    margin-top: 50px;
+    border-radius: 10%;
+    padding: 10px;
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.cardWrapper:hover {
+    transform: scale(1.05);
+    background-color: rgb(134, 127, 128, 1);
+}
+
+.genreDiv {
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 5px;
+    font-size: 11px;
+  }
+  
+  .genreDiv > * {
+    flex: 1 0 48%;
+    margin: 1px;
+  }
+
+.image {
+    width: 100%;
+    height: 60%;
+}
+
+.genreBorder {
+    border: 1px solid black;
+    border-radius: 0 10px 0 10px;
+    margin-bottom: 5px;
+    background-color: rgb(89, 157, 212);
+    color: black;
+}
