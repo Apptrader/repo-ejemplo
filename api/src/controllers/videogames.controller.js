@@ -22,7 +22,7 @@ const fetchVideogames = async () => {
         }
     }
 
-    let allVideoGames = [{api: apiVideoGames, db: dbGames}]
+    let allVideoGames = [dbGames.concat(apiVideoGames)]
 
     return allVideoGames;
 };
