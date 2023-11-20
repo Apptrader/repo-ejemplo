@@ -16,10 +16,11 @@ function VideoGameCards() {
   useEffect(() => {
     const fetchData = async () => {
       if (videogames) {
-        const combinedVideoGames = videogames.data[0].db.concat(videogames.data[0].api);
-        setAllVideogames(combinedVideoGames);
+        console.log(videogames.data[0])
+        const games = videogames.data[0]
+        setAllVideogames(games);
 
-        const paginatedGames = paginate(combinedVideoGames, gamesPage);
+        const paginatedGames = paginate(games, gamesPage);
         setPaginatedVideoGames(paginatedGames);
         setTotalPages(paginatedGames.length);
       }
