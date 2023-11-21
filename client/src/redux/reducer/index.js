@@ -21,20 +21,6 @@ const rootReducer = (state = initialState, action) => {
                 genres: action.payload,
             }
         case SET_PLATFORMS:
-        return {
-            ...state,
-            platforms: action.payload,
-        }
-        case SET_IS_API_GAME:
-        return {
-            ...state,
-            isApiGame: action.payload,
-        }
-        case SET_FILTER_GENRE_GAMES:
-            return {
-                ...state,
-                videogames: action.payload
-            }
         default:
             return state;
     }
