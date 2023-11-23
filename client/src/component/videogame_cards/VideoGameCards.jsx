@@ -56,7 +56,12 @@ function VideoGameCards() {
   };
 
   if (!videogames) {
-    return <img src="https://i.pinimg.com/originals/3d/80/64/3d8064758e54ec662e076b6ca54aa90e.gif" alt="loading" />;
+    return (
+        <>
+          <img className={styles.loading} src="https://htmlburger.com/blog/wp-content/uploads/2021/07/The-Best-50-Website-Preloaders-Around-the-Web-Example-13a.gif" alt="loading" />;
+          <p className={styles.loadingText}>LOADING...</p>
+        </>
+    )
   }
 
   if (!allVideoGames || allVideoGames.length === 0) {
@@ -78,7 +83,7 @@ function VideoGameCards() {
       </div>
       <div className={styles.pagination}>
         <button onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1} className={styles.anterior}>
-          Anterior
+          Prev.
         </button>
         <span className={styles.numbers}>
           {paginatedVideoGames && paginatedVideoGames.map((number, index) => (
@@ -86,7 +91,7 @@ function VideoGameCards() {
           ))}
         </span>
         <button onClick={() => handlePageChange(currentPage + 1)} disabled={currentPage === totalPages} className={styles.siguiente}>
-          Siguiente
+          Next
         </button>
       </div>
     </>

@@ -3,6 +3,8 @@ const axios = require("axios");
 require('dotenv').config();
 const apiKey = process.env.API_KEY
 
+//funcion para hacer el fetch
+
 const fetchVideogames = async () => {
     
     let dbGames = await Videogame.findAll();
@@ -27,6 +29,8 @@ const fetchVideogames = async () => {
     return allVideoGames;
 };
 
+//controlador para llamar a todos los juegos
+
 const getVideogames = async (req, res) => {
     try {
         const allVideogames = await fetchVideogames();
@@ -36,18 +40,10 @@ const getVideogames = async (req, res) => {
     }
 };
 
-const searchVideogames = async (req, res) => {
-    try {
-        const allVideogames = await fetchVideogames();
-        return allVideogames;
-    } catch (error) {
-        res.status(400).json(error);
-    }
-};
+ //controlador para traer games por id de la api
 
 const getGameById = async (req, res) => {
     const  id  = req.params.idVideogames
-    console.log(id)
     try {
         if (!id) {
             return res.status(500).json("invalid game ID")
@@ -59,6 +55,8 @@ const getGameById = async (req, res) => {
         res.status(500).json(error);
     }
 }
+
+//ruta para buscar por nombres
 
 const getByNames = async (req, res) => {
     const query = req.query.name;
@@ -74,8 +72,10 @@ const getByNames = async (req, res) => {
 
 }
 
+//crear juego
+
 const addGame = async (req, res) => {
-    console.log("papa");
+
     const { name, image, platforms, description, releasedDate, rating, genres, apiGame } = req.body;
     console.log(req.body);
 
@@ -87,10 +87,10 @@ const addGame = async (req, res) => {
 
     try {
        
-        const videogames = await searchVideogames(req, res);
+        const videogames = await fetchVideogames();
 
         
-        const repeatGame = videogames.find(game => game.name.toLowerCase() === _name);
+        const repeatGame = videogames[0].find(game => game.name.toLowerCase() === _name);
         if (repeatGame) {
             return res.status(400).json({ error: 'Game already exists' });
         }
@@ -134,7 +134,9 @@ const addGame = async (req, res) => {
     }
 };
 
-const getApiGameById = async (req, res) => {
+//controlador para buscar un juego de la db por id
+
+const getDbGameById = async (req, res) => {
     console.log(req.params)
     const id = req.params.idVideogames
     console.log(id)
@@ -155,5 +157,5 @@ const getApiGameById = async (req, res) => {
 };
 
 
-const controllers = { getVideogames, getGameById, getByNames, addGame, getApiGameById }
+const controllers = { getVideogames, getGameById, getByNames, addGame, getDbGameById }
 module.exports = controllers

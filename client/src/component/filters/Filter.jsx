@@ -7,6 +7,8 @@ import axios from 'axios';
 function Filter({ videogames, setAllVideogames, setCurrentPage }) {
   const games = videogames.data[0];
   const genres = useSelector((state) => state?.genres);
+
+  //estado local para todos los filtros
   const [allFilters, setAllFilters] = useState({
     genre: '',
     origin: '',
@@ -14,6 +16,7 @@ function Filter({ videogames, setAllVideogames, setCurrentPage }) {
     rating: '',
     searchTerm: '',
   });
+
   const [filterGames, setFilterGames] = useState(games);
   const [shouldUpdateAllVideogames, setShouldUpdateAllVideogames] = useState(false);
 
@@ -33,11 +36,17 @@ function Filter({ videogames, setAllVideogames, setCurrentPage }) {
     sortingOptions.forEach((sortingOption) => {
       if (sortingOption === 'az') {
         sortedGames.sort((a, b) => a.name.localeCompare(b.name));
-      } else if (sortingOption === 'za') {
+      } 
+      
+      else if (sortingOption === 'za') {
         sortedGames.sort((a, b) => b.name.localeCompare(a.name));
-      } else if (sortingOption === 'ascending') {
+      } 
+      
+      else if (sortingOption === 'ascending') {
         sortedGames.sort((a, b) => (a.rating || 0) - (b.rating || 0));
-      } else if (sortingOption === 'descending') {
+      } 
+      
+      else if (sortingOption === 'descending') {
         sortedGames.sort((a, b) => (b.rating || 0) - (a.rating || 0));
       }
     });
@@ -51,7 +60,6 @@ function Filter({ videogames, setAllVideogames, setCurrentPage }) {
   
       // Filtrar por género
       if (allFilters.genre !== '') {
-        console.log(allFilters.genre);
         try {
           const genreGames = await Promise.all(
             filteredGames.map(async (game) => {
@@ -79,7 +87,7 @@ function Filter({ videogames, setAllVideogames, setCurrentPage }) {
         }
       }
   
-      // Resto de los filtros
+      // filtro por origen
       if (allFilters.origin !== '') {
         filteredGames = filteredGames.filter((game) => {
           return (
@@ -113,7 +121,7 @@ function Filter({ videogames, setAllVideogames, setCurrentPage }) {
     }
 
     setShouldUpdateAllVideogames(false);
-  }, [filterGames, shouldUpdateAllVideogames, setCurrentPage, setAllVideogames]);
+  }, [filterGames, shouldUpdateAllVideogames]);
 
   const handleSelectGenre = (event) => {
     const newSelectedGenre = event.target.value;

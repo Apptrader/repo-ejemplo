@@ -86,3 +86,8 @@ img {
 *::-webkit-scrollbar-track {
     background-color: rgba(0, 0, 0, 0.1);
 }
+
+.infoText {
+    color: black;
+    font-weight: bold;
+}

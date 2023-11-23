@@ -40,7 +40,7 @@ function Detail() {
                 <div className={styles.detailWrapper}>
                     <img src={game.background_image} className={styles.img} />
                     <h2>{game.name}</h2>
-                    <p className={styles.description}>{game.description}</p>
+                    {game.description && <p className={styles.description}>{game.description.replace(/<\/?p>/g, '')}</p>}
 
                 </div>
                 <div>
@@ -95,9 +95,9 @@ function Detail() {
                         <div className={styles.ratingWrapper}>
                             <h2 className={styles.infoTitle}>Game information</h2>
                             <div className={styles.infoDiv}>
-                                <p>Realease Date: {game.releaseDate}</p>
-                                <p>Rating: {game.rating}</p>
-                                <p>Id: {game.id}</p>
+                                <p><span className={styles.infoText}>Realease Date: </span> {game.releaseDate}</p>
+                                <p><span className={styles.infoText}>Rating: </span>{game.rating}</p>
+                                <p><span className={styles.infoText}>Id: </span> {game.id}</p>
                             </div>
                         </div>
                         <div className={styles.genresWrapper}>
@@ -123,7 +123,6 @@ function Detail() {
                             </div>
                         </div>
                     </div>
-
                 </div>
 
             );

@@ -21,8 +21,8 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 25px;
     margin-top: -50px;
-    justify-content: center; /* Centrar horizontalmente */
-    align-items: center; /* Centrar verticalmente */
+    justify-content: center;
+    align-items: center; 
     height: 450px
 }
 

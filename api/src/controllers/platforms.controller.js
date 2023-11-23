@@ -2,6 +2,8 @@ const axios = require("axios");
 require('dotenv').config();
 const apiKey = process.env.API_KEY;
 
+// no se puede usar la ruta de platforms, asi que extraigo la info del endpoint principal
+
 const getPlatforms = async (req, res) => {
     try {
 
