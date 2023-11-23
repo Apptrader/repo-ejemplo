@@ -13,30 +13,7 @@ function VideoGameCards() {
   const [paginatedVideoGames, setPaginatedVideoGames] = useState([]);
   const [totalPages, setTotalPages] = useState(0);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      if (videogames) {
-        console.log(videogames.data[0])
-        const games = videogames.data[0]
-        setAllVideogames(games);
-
-        const paginatedGames = paginate(games, gamesPage);
-        setPaginatedVideoGames(paginatedGames);
-        setTotalPages(paginatedGames.length);
-      }
-    };
-
-    fetchData();
-  }, [videogames, gamesPage]);
-
-  useEffect(() => {
-    
-    const paginatedGames = paginate(allVideoGames, gamesPage);
-    setPaginatedVideoGames(paginatedGames);
-    setTotalPages(paginatedGames.length);
-  }, [allVideoGames, gamesPage]);
-
-  function paginate(array, pageSize) {
+  const paginate = (array, pageSize) => {
     const result = [];
 
     for (let index = 0; index < array.length; index++) {
@@ -50,14 +27,45 @@ function VideoGameCards() {
     }
 
     return result;
-  }
+  };
+
+  const updatePaginatedGames = (games) => {
+    const paginatedGames = paginate(games, gamesPage);
+    setPaginatedVideoGames(paginatedGames);
+    setTotalPages(paginatedGames.length);
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      if (videogames) {
+        const games = videogames.data[0];
+        setAllVideogames(games);
+        updatePaginatedGames(games);
+      }
+    };
+
+    fetchData();
+  }, [videogames, gamesPage]);
+
+  useEffect(() => {
+    updatePaginatedGames(allVideoGames);
+  }, [allVideoGames, gamesPage]);
 
   const handlePageChange = (newPage) => {
     setCurrentPage(newPage);
   };
 
+  if (!videogames) {
+    return <img src="https://i.pinimg.com/originals/3d/80/64/3d8064758e54ec662e076b6ca54aa90e.gif" alt="loading" />;
+  }
+
   if (!allVideoGames || allVideoGames.length === 0) {
-    return <p>Cargando videojuegos...</p>;
+    return (
+      <>
+        <Filter videogames={videogames} setAllVideogames={setAllVideogames} setCurrentPage={setCurrentPage} />
+        <p>No se han encontrado videojuegos</p>;
+      </>
+    ) 
   }
 
   return (

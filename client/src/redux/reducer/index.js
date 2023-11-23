@@ -1,4 +1,4 @@
-import { GET_GAMES, SET_GENRES, SET_PLATFORMS, SET_IS_API_GAME, SET_FILTER_GENRE_GAMES } from '../actions/actionTypes'
+import { GET_GAMES, SET_GENRES, SET_PLATFORMS } from '../actions/actionTypes'
 
 const initialState = {
 
@@ -20,7 +20,11 @@ const rootReducer = (state = initialState, action) => {
                 ...state,
                 genres: action.payload,
             }
-        case SET_PLATFORMS:
+            case SET_PLATFORMS:
+                return {
+                    ...state,
+                    platforms: action.payload,
+                }
         default:
             return state;
     }

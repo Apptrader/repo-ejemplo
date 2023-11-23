@@ -3,13 +3,12 @@
     height: 60px;
     position: sticky;
     top: 0;
-    background-color: rgb(214, 212, 212);
+    background-color: rgb(235, 230, 230); 
     display: flex;
     color: black;
-    font: bolder;
+    font-weight: bolder; 
     z-index: 22;
 }
-
 .navBarBtn {
     margin: auto;
 }
@@ -31,6 +30,7 @@
     padding-left: 10px;
     width: 50px;
     height: 50px;
+    margin-top: -8px;
 }
 
 .info {

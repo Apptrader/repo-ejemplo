@@ -1,0 +1,34 @@
+.container {
+    width: 60%;
+    height: 500px;
+    margin: auto;
+    margin-top: 35px;
+    background-color:rgb(70, 71, 124, 0.9); ;
+    color: black
+}
+
+.image {
+    margin-top: 40px;
+    width: 250px;
+    height: 200px;
+}
+
+.info {
+    color: rgb(192, 45, 45);
+    font-weight: bold;
+}
+
+.games {
+    color: rgb(48, 48, 184);
+    font-weight: bold;
+}
+
+.title {
+    padding: 20px;
+    background-color: rgb(197, 197, 197);
+}
+
+.information {
+    color: white;
+    padding: 10px;
+}

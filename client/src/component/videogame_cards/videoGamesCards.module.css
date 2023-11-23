@@ -2,7 +2,9 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 25px;
-    margin-left: 6%;
+    align-items: center;
+    justify-content: center;
+    padding-left: 108px;
 }
   
   .pagination {
@@ -13,6 +15,7 @@
     padding: 10px;
     margin: auto;
     margin-top: 25px;
+    
   }
   
   .anterior,
